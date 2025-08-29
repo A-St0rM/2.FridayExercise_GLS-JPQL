@@ -22,7 +22,9 @@ public class Parcel {
     private String senderName;
     private String receiverName;
     private DeliveryStatus deliveryStatus;
-    private LocalDateTime updated;
+
+    @Builder.Default
+    private LocalDateTime updated = null;
 
     //Define pre-update and pre-persist life cycle methods in the “Parcel” entity to update the last updated timestamp automatically.
 

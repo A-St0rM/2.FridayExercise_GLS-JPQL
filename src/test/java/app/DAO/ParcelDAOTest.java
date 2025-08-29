@@ -1,6 +1,8 @@
 package app.DAO;
 
 import app.config.HibernateConfig;
+import app.entities.Parcel;
+import app.enums.DeliveryStatus;
 import jakarta.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,7 +18,7 @@ class ParcelDAOTest {
 
     @BeforeAll
     static void setup() {
-        HibernateConfig.setTest(true);  // use Testcontainers
+        HibernateConfig.setTest(true);  // Her bruger vi test containers automatisk
         emf = HibernateConfig.getEntityManagerFactory();
         parcelDAO = new ParcelDAO(emf);
     }
@@ -35,6 +37,16 @@ class ParcelDAOTest {
 
     @Test
     void createParcel() {
+        Parcel parcel = Parcel.builder()
+                .trackingNumber("123D")
+                .senderName("Alissa")
+                .receiverName("Morten")
+                .deliveryStatus(DeliveryStatus.PENDING)
+                .build();
+
+        Parcel createdParcel = parcelDAO.createParcel(parcel);
+        assertNotNull(createdParcel.getId());
+        A
     }
 
     @Test
