@@ -46,7 +46,7 @@ class ParcelDAOTest {
 
         Parcel createdParcel = parcelDAO.createParcel(parcel);
         assertNotNull(createdParcel.getId());
-        A
+        assertEquals("123D", createdParcel.getTrackingNumber());
     }
 
     @Test
