@@ -72,7 +72,7 @@ public class ParcelDAO {
         try{
             em.getTransaction().begin();
 
-            TypedQuery<Parcel> query = em.createQuery("SELECT P FROM Parcel p WHERE p.trackingNumber = :trackingNumber", Parcel.class);
+            TypedQuery<Parcel> query = em.createQuery("SELECT p FROM Parcel p WHERE p.trackingNumber = :trackingNumber", Parcel.class);
             query.setParameter("trackingNumber", trackingNumber);
 
             Parcel parcel = query.getSingleResult();
