@@ -17,8 +17,7 @@ public class ParcelDAO {
         this.emf = emf;
     }
 
-    //Persist a new parcel
-    //Vi bruger en try catch for at sørge for at vores em altid lukker hvis der går noget galt i processen
+
     public Parcel createParcel(Parcel p){
         EntityManager em = emf.createEntityManager();
         try {
